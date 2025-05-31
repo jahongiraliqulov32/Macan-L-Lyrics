@@ -1,216 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Macan L</title>
-    <style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Macan L</title>
+  <style>
+    /* General reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Calibri', sans-serif;
+      background-color: #5a2a0c; /* brown */
+      color: white;
+      line-height: 1.5;
+      padding: 10px;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 14px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Header nav */
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-family: 'Lucida Sans Unicode', sans-serif;
+      font-size: 15px;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+
+    /* Icons styles (same as you had) */
     .gg-calendar,
     .gg-calendar::before {
-    display: block;
-    box-sizing: border-box;
+      display: block;
+      box-sizing: border-box;
     }
     .gg-calendar {
-    position: relative;
-    transform: scale(var(--ggs, 1));
-    width: 18px;
-    height: 18px;
-    border: 2px solid;
-    border-top: 4px solid;
-    border-radius: 3px;
+      position: relative;
+      transform: scale(var(--ggs, 1));
+      width: 18px;
+      height: 18px;
+      border: 2px solid;
+      border-top: 4px solid;
+      border-radius: 3px;
+      margin-right: 6px;
+      color: white;
     }
     .gg-calendar::before {
-    content: "";
-    position: absolute;
-    width: 10px;
-    border-radius: 3px;
-    left: 2px;
-    background: currentColor;
-    height: 2px;
-    top: 2px;
+      content: "";
+      position: absolute;
+      width: 10px;
+      border-radius: 3px;
+      left: 2px;
+      background: currentColor;
+      height: 2px;
+      top: 2px;
     }
-
-
     .gg-time {
-    box-sizing: border-box;
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 18px;
-    height: 18px;
-    border-radius: 100%;
-    border: 2px solid transparent;
-    box-shadow: 0 0 0 2px currentColor;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      transform: scale(var(--ggs, 1));
+      width: 18px;
+      height: 18px;
+      border-radius: 100%;
+      border: 2px solid transparent;
+      box-shadow: 0 0 0 2px currentColor;
+      margin-right: 6px;
+      color: white;
     }
     .gg-time::after {
-    content: "";
-    display: block;
-    box-sizing: border-box;
-    position: absolute;
-    width: 7px;
-    height: 7px;
-    border-left: 2px solid;
-    border-bottom: 2px solid;
-    top: 1px;
-    left: 5px;
+      content: "";
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-left: 2px solid;
+      border-bottom: 2px solid;
+      top: 1px;
+      left: 5px;
     }
-
-
     .gg-eye {
-    position: relative;
-    display: block;
-    transform: scale(var(--ggs, 1));
-    width: 24px;
-    height: 18px;
-    border-bottom-right-radius: 100px;
-    border-bottom-left-radius: 100px;
-    overflow: hidden;
-    box-sizing: border-box;
+      position: relative;
+      display: block;
+      transform: scale(var(--ggs, 1));
+      width: 24px;
+      height: 18px;
+      border-bottom-right-radius: 100px;
+      border-bottom-left-radius: 100px;
+      overflow: hidden;
+      box-sizing: border-box;
+      margin-right: 6px;
+      color: white;
     }
     .gg-eye::after,
     .gg-eye::before {
-    content: "";
-    display: block;
-    border-radius: 100px;
-    position: absolute;
-    box-sizing: border-box;
+      content: "";
+      display: block;
+      border-radius: 100px;
+      position: absolute;
+      box-sizing: border-box;
     }
     .gg-eye::after {
-    top: 2px;
-    box-shadow:
+      top: 2px;
+      box-shadow:
         inset 0 -8px 0 2px,
         inset 0 0 0 2px;
-    width: 24px;
-    height: 24px;
+      width: 24px;
+      height: 24px;
     }
     .gg-eye::before {
-    width: 8px;
-    height: 8px;
-    border: 2px solid;
-    bottom: 4px;
-    left: 8px;
+      width: 8px;
+      height: 8px;
+      border: 2px solid;
+      bottom: 4px;
+      left: 8px;
     }
 
-    </style>
+    /* Main content */
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+    .main-header img {
+      width: 180px;
+      border-radius: 10px;
+    }
+    .artist-info {
+      text-align: center;
+    }
+    .artist-info h1 {
+      font-size: 36px;
+      margin-bottom: 5px;
+    }
+    .artist-info a {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 5px;
+      color: #ddd;
+    }
+    .artist-info p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #bbb;
+    }
+
+    /* Stats section */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+    }
+    .stat-text {
+      margin-left: 6px;
+      color: white;
+    }
+
+    /* Media controls */
+    .media-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    audio, video {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 10px;
+      background: black;
+    }
+
+    /* Lyrics text */
+    .lyrics {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      font-size: 14px;
+      white-space: pre-wrap;
+      line-height: 1.4;
+      margin: 0 10px 30px;
+    }
+
+    /* Responsive for smaller phones */
+    @media (max-width: 480px) {
+      .main-header img {
+        width: 140px;
+      }
+      .artist-info h1 {
+        font-size: 28px;
+      }
+      .artist-info a {
+        font-size: 14px;
+      }
+      .stats {
+        font-size: 14px;
+      }
+      .media-controls {
+        gap: 15px;
+      }
+      .lyrics {
+        font-size: 13px;
+        max-height: 200px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div style="background-color: brown;">
 
-        <div style="height: 30px; font-size: 15px;">
-            <br>
-            <a href="https://genius.com/" style="color: white; font-family: 'Lucida Sans Unicode'; margin-left: 10px;" target="_blank">Genius</a>
-            <a href="https://musiciq.genius.com/" style="color: white; margin-left: 20px;" target="_blank">Music IQ</a>
-            <a href="https://genius.com/#featured-stories" style="color: white; margin-left: 20px;" target="_blank">Featured</a>
-            <a href="https://genius.com/#top-songs" style="color: white; margin-left: 20px;" target="_blank">Charts</a>
-            <a href="https://genius.com/#videos" style="color: white; margin-left: 20px;" target="_blank">Videos</a>
-            <a href="https://promote.genius.com/" style="color: white; margin-left: 20px;" target="_blank">Promote Your Music</a>
-        </div>
-        
-        <br>
+  <nav class="nav-bar">
+    <a href="https://genius.com/" target="_blank" rel="noopener">Genius</a>
+    <a href="https://musiciq.genius.com/" target="_blank" rel="noopener">Music IQ</a>
+    <a href="https://genius.com/#featured-stories" target="_blank" rel="noopener">Featured</a>
+    <a href="https://genius.com/#top-songs" target="_blank" rel="noopener">Charts</a>
+    <a href="https://genius.com/#videos" target="_blank" rel="noopener">Videos</a>
+    <a href="https://promote.genius.com/" target="_blank" rel="noopener">Promote Your Music</a>
+  </nav>
 
-        <div style="display: flex; align-items:flex-start; margin-top: 40px; font-size: 30px;">
-
-            <img src="Macan.png" alt="Macan L" style="width: 250px; margin-left: 100px; margin-bottom: 80px;">
-            
-            <div class="font">
-                <h1 style="margin-left: 20px; color: white; font-size: 30px; margin-top: 20px; font-family: Calibri; position: relative; top: -25px;">L</h1>
-                <a href="https://genius.com/artists/Macan" target="_blank" rel="noopener noreferrer" 
-                style="margin-left: 20px; color: white; font-size: 15px; margin-top: 10px; position: relative; top: -45px;">MACAN</a>
-
-                <p style="color: white; margin-left: 20px; font-size: 13px; position: relative; top: -40px; bottom: 20px;">Producer</p>
-                <a href="https://genius.com/artists/Alexey-polyakov" style="font-size: 20px; color: white; margin-left: 20px; position:relative; top:-40px">Алексей Поляков (Alexey Polyakov)</a>
-            </div>
-
-            <div style="display: flex; flex-direction: row; position: relative; bottom: -230px; width: 15cm; height: 10px; margin-left: -310px;">
-                <div class="gg-calendar" style="position: relative; justify-content: center; font-size: 20px; color: white;"></div>
-                <div style="color: white; position: relative;  font-size: 20px; right: -5px;">Apr. 11,2025</div>
-                <div class="gg-time" style="right: -30px; color: white;"></div>
-                <div style="color: white; font-size: 20px; position: relative; right: -40px;">3 Viewers</div>
-                <div class="gg-eye" style="color: white; position: relative; right: -65px;"></div>
-                <div style="color: white; position: relative;  font-size: 20px; right: -70px;">63,7K Viewers</div>
-            </div>
-        </div>
+  <header class="main-header">
+    <img src="Macan.png" alt="Macan L" />
+    <div class="artist-info">
+      <h1>L</h1>
+      <a href="https://genius.com/artists/Macan" target="_blank" rel="noopener">MACAN</a>
+      <p>Producer</p>
+      <a href="https://genius.com/artists/Alexey-polyakov" target="_blank" rel="noopener">Алексей Поляков (Alexey Polyakov)</a>
     </div>
+  </header>
 
-    <div style="display: flex; align-items: flex-start;">
-        <div style="position: relative; right: -95px; bottom: -10px; font-size: 20px; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Macan L Audio</div>
-        
-        <audio controls style="position: relative; right: 30px; bottom: -50px;">
-            <source src="MACAN - L.mp3">
-        </audio>
-        
-        <video controls style="position: relative; bottom: -100px; right: -250px;" width="400">
-        <source src="MACAN - L.mp4" type="video/mp4">
-        <source src="MACAN - L.webm" type="video/webm">
-        </video>
-
-        <div  style="position: relative; bottom: -110px; right: 850px;">
-            <pre>
-                [Текст песни «L»]
-
-                [Интро]
-                Эй, эй, MAC
-
-                [Куплет 1]
-                Прости меня, моё сердце, я не всегда был тебе предан
-                Часто слушая тех, кем по итогу был предан
-                Ребра давят на грудь, будто давят новые кеды
-                Внутренние дети сидят в клетках взрослой системы
-                Что переписала смыслы и завернула это в поэмы
-                И подменила лекарства на яд и пустила их нам по венам
-                Но мы обязательно встретимся, а когда обнимемся
-                Вновь поймём, что единственным смыслом
-
-                [Припев]
-                Была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-                Та была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-
-                [Куплет 2]
-                Я закурю на лестнице ночью «Парламент Аква»
-                Сегодня был хороший день, верю, так будет завтра
-                Я закурю, потом останется только её обнять
-                Я замолю грехи, чтобы мне легче было спать
-                Я вспомню всех своих родных и обещнусь не забывать
-                Сколько раз ангел меня спас, хотя мог бы и не спасать
-                Сколько мы пролетели, сколько нам ещё летать
-                Вспомню, как там дома мама, и сразу начну скучать
-                Закурю воспоминания, выдыхая едкий дым
-                О тех, кто выбрал жить на всю, но погибать молодыми, увы
-                Воспоминания о тех, кто так не вышел сухим из воды
-                Сказав: «Так было нужно, знаешь, мне не до судьбы»
-                Станции жизни пролетают мимо молодых
-                Свечи вкруглые за живых ставлю, упомянув святых
-                Сегодня был хороший день, я буду ждать таких
-                Спаси и сохрани меня и моих
-                See upcoming pop shows
-                Get tickets for your favorite artists
-                You might also like
-
-                [Припев]
-                Была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-                Та была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-                Была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-                Та была любовь, любовь, любовь, любовь
-                А я вновь и вновь, и вновь ходил, дурак
-                Тысячи секунд, минут, часов ища дорогу
-                Хотя все меня вели и так
-            </pre>
-        </div>
+  <section class="stats">
+    <div class="stat-item">
+      <div class="gg-calendar"></div>
+      <span class="stat-text">Apr. 11, 2025</span>
     </div>
+    <div class="stat-item">
+      <div class="gg-time"></div>
+      <span class="stat-text">3 Viewers</span>
+    </div>
+    <div class="stat-item">
+      <div class="gg-eye"></div>
+      <span class="stat-text">63.7K Viewers</span>
+    </div>
+  </section>
+
+  <section class="media-controls">
+    <audio controls>
+      <source src="MACAN - L.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+    <video controls>
+      <source src="MACAN - L.mp4" type="video/mp4" />
+      <source src="MACAN - L.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <section class="lyrics">
+    <pre>
+[Текст песни «L»]
+
+[Интро]
+Эй, эй, MAC
+
+[Куплет 1]
+Прости меня, моё сердце, я не всегда был тебе предан
+Часто слушая тех, кем по итогу был предан
+Ребра давят на грудь, будто давят новые кеды
+Внутренние дети сидят в клетках взрослой системы
+Что переписала смыслы и завернула это в поэмы
+И подменила лекарства на яд и пустила их нам по венам
+Но мы обязательно встретимся, а когда обнимемся
+Вновь поймём, что единственным смыслом
+
+[Припев]
+Была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+Та была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+
+[Куплет 2]
+Я закурю на лестнице ночью «Парламент Аква»
+Сегодня был хороший день, верю, так будет завтра
+Я закурю, потом останется только её обнять
+Я замолю грехи, чтобы мне легче было спать
+Я вспомню всех своих родных и обещнусь не забывать
+Сколько раз ангел меня спас, хотя мог бы и не спасать
+Сколько мы пролетели, сколько нам ещё летать
+Вспомню, как там дома мама, и сразу начну скучать
+Закурю воспоминания, выдыхая едкий дым
+О тех, кто выбрал жить на всю, но погибать молодыми, увы
+Воспоминания о тех, кто так не вышел сухим из воды
+Сказав: «Так было нужно, знаешь, мне не до судьбы»
+Станции жизни пролетают мимо молодых
+Свечи вкруглые за живых ставлю, упомянув святых
+Сегодня был хороший день, я буду ждать таких
+Спаси и сохрани меня и моих
+See upcoming pop shows
+Get tickets for your favorite artists
+You might also like
+
+[Припев]
+Была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+Та была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+Была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+Та была любовь, любовь, любовь, любовь
+А я вновь и вновь, и вновь ходил, дурак
+Тысячи секунд, минут, часов ища дорогу
+Хотя все меня вели и так
+    </pre>
+  </section>
+
 </body>
 </html>
