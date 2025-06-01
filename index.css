@@ -1,0 +1,193 @@
+* {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Calibri, sans-serif;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            margin-right: 15px;
+            font-size: 14px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .top-bar {
+            background-color: brown;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .nav-bar {
+            display: flex;
+            flex-wrap: wrap;
+            font-family: 'Lucida Sans Unicode', sans-serif;
+            font-size: 15px;
+            justify-content: flex-start;
+        }
+
+        .header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+            background-color: brown;
+            color: white;
+        }
+
+        .album-cover {
+            width: 250px;
+        }
+
+        .artist-info h1 {
+            font-size: 30px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20p, 40px;
+            padding: 20px;
+            margin-left: 40px;
+            justify-content:flex-start;
+        }
+
+        .media-controls {
+            display: flex;
+            left: 20px;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        audio {
+            width: 500px;
+            max-width: 400px;
+            border-radius: 10px;
+            background: white;
+            position: relative;
+            right: 10px;
+
+        }
+        video{
+          width: 100%;
+          max-width: 400%;
+          max-height: 400px;
+          border-radius: 15px;
+          background-color: white;
+          right: -175px;
+          position: relative;
+          bottom: -105px;
+
+        }
+
+        .lyrics {
+            background: rgba(33, 24, 104, 0.055);
+            padding: 10px;
+            border-radius: 20px;
+            max-height: 400px;
+            max-width: 500px;
+            overflow-y: auto;
+            font-size: 14px;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+            top: -300px;
+            right: 1px;
+        }
+
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .album-cover {
+        width: 150px;
+    }
+
+    .artist-info h1 {
+        font-size: 24px;
+    }
+
+    .stats {
+        font-size: 12px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar {
+        justify-content: center;
+        font-size: 14px;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .media-controls {
+        width: 100%;
+        align-items: center;
+    }
+
+    audio {
+        width: 100%;
+        max-width: 90vw;
+        right: 0;
+        position: static;
+    }
+
+    .lyrics {
+        max-width: 90vw;
+        max-height: 300px;
+        margin-top: 10px;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 1.6;
+        position: static;
+        background: rgba(33, 24, 104, 0.055);
+    }
+
+    .video {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        position: static;
+        margin-top: 10px;
+    }
+
+    video {
+        width: 100%;
+        max-width: 90vw;
+        max-height: 300px;
+        border-radius: 15px;
+        right: 0;
+        bottom: 0;
+        position: static;
+    }
+}
